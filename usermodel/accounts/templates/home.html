@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+  Home
+{% endblock title %}
+{% block content %}
+{%if user.is_authenticated %}
+   <h1>Welcome {{user.username}} <br> Now You Are Login</h1>
+   <h2><a href="{% url 'password_change' %}" class="btn btn-primary">Change Password</a></h2>
+    <h2><a href="{% url 'logout' %}" class="btn btn-primary">Logout</a></h2>
+  {% else %}
+  <h1>Welcome to our Registeration System</h1>
+  <h2><a href="{% url 'login' %}" class="btn btn-primary">Login</a></h2>
+  <h2><a href="{% url 'register' %}" class="btn btn-primary">Register</a></h2>
+  <h2><a href="{% url 'password_reset' %}" class="btn btn-primary">Password Reset</a></h2>
+{% endif %}
+
+{% endblock content %}
